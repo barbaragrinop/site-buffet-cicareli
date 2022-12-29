@@ -1,0 +1,13 @@
+@use '../../styles/variables.scss' as v;
+.navbar {
+    display: flex;
+    gap: 3;
+    list-style: none;
+}
+
+.btn-orcamento {
+    border: 1px solid v.$white2;
+}
+// .header {
+//     // grid: ;
+// }
