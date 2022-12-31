@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Navbar from "../components/Navbar";
+import MenuHamburger from "../components/MenuHamburger";
 
 export default function Home() {
   return (

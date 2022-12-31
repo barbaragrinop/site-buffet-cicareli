@@ -1,13 +1,89 @@
-@use '../../styles/variables.scss' as v;
-.navbar {
+@use '../../styles/_index.scss' as *;
+
+.header {
+    background-color: rgba($black2, 0.7);
     display: flex;
-    gap: 3;
-    list-style: none;
+    justify-content: end;
+    align-items: center;
+    height: 4rem;
+    position: sticky;
+    position: -webkit-sticky; /* Safari */
+    top: 0;
+    z-index: 10;
+    min-width: 100vw;
 }
 
-.btn-orcamento {
-    border: 1px solid v.$white2;
+.navbar {
+    display: flex;
+    height: 100%;
+    font-family: 'Source Serif Pro Italic';
+
+
+    & > ul {
+        list-style: none;
+        font-size: 1.125rem;
+        transition: 2s ease all;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        & > li {
+                & > a {
+                    text-decoration: none;
+        
+                    &:hover {
+                        color: $white0;
+                    }
+        
+                    &:active {
+                        color: $white0;
+                    }
+                }
+            }
+        }
 }
-// .header {
-//     // grid: ;
-// }
+
+
+
+
+.btnOrcamento {
+    border: 1px solid $golden;
+    padding: .5rem .875rem;
+    font-family: 'Manrope';
+    text-transform: uppercase;
+    font-size: .875rem;
+    font-weight: 500;
+    letter-spacing: .0625rem;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $golden;
+        color: $white0;
+        -webkit-transition: background-color .2s ease-out;
+        -moz-transition: background-color .2s ease-out;
+        -o-transition: background-color .2s ease-out;
+        transition: background-color .2s ease-out;
+    }
+}
+
+.logoNavbar {
+    width: 11rem;
+    cursor: pointer;
+}
+
+.navItemActive  {
+    color: $white0;
+    font-weight: 700; 
+}
+
+@media screen and (max-width:$max-cellphone) {
+
+    .navbar  {
+       
+            display: none;
+       
+    }   
+
+
+}
+

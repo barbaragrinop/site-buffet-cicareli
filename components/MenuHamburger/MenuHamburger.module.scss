@@ -1,0 +1,62 @@
+@use '../../styles/_index.scss' as *;
+
+$height: 1rem;
+
+
+.hamburger {
+    box-sizing: border-box;
+    width: 20px;
+    height: 1rem;
+    position: relative;
+    margin: 15px;
+
+    // &:hover, &:focus {
+    //     .line1 {
+    //         transform: translateX(4px);
+    //     }
+    //     .line3 {
+    //         transform: translateX(-4px);
+    //     }
+    // }
+
+    &.active {
+        .line1 {
+            transform: translateY(0.5rem) rotate(45deg);
+        }
+        .line2 {
+            opacity: 0;
+        }
+        .line3 {
+            transform: translateY(-0.5rem) rotate(-45deg);
+        }
+    }
+
+}
+
+.line {
+    background-color: $golden;
+    width: 20px;
+    height: 3px;
+    position: absolute;
+    border-radius: .3125rem;
+    transition: all .2s ease-in;
+
+    &.line1 {
+        top: 0%;
+    }
+    &.line2 {
+        top: 50%;
+    }
+    &.line3 {
+        top: 100%;
+    }
+}
+
+@media screen and (min-width:$max-cellphone) {
+
+    .hamburger  {
+        display: none;
+       
+    }   
+
+}
