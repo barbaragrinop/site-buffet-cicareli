@@ -24,7 +24,7 @@ export default function Navbar() {
       <nav className={styles.navbar}>
         <ul className={styles.listNavbar}>
           {ItemsMenu.map(({ title, url }, index: number) => (
-            <li>
+            <li className={styles.itemsMenu} key={index}>
               <Link
                 href={url}
                 style={

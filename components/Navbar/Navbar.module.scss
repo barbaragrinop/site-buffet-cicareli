@@ -44,8 +44,6 @@
 }
 
 
-
-
 .btnOrcamento {
     border: 1px solid $golden;
     padding: .5rem .875rem;
@@ -78,10 +76,8 @@
 
 @media screen and (max-width:$max-cellphone) {
 
-    .navbar  {
-       
+    .itemsMenu {
             display: none;
-       
     }   
 
 
