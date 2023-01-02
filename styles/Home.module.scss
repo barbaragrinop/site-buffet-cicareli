@@ -21,9 +21,6 @@
 .introduction {
   padding: 10.6rem 7.3rem;
   color: white;
-  // display: flex;
-  // height: 50vh;
-  // background:red;
   
 
   & > p {
@@ -49,10 +46,45 @@
     color: $white0;
     cursor: pointer;
     transition: .2s all;
+  }
+}
 
-    &:hover {
+@media (max-width:640px) {
 
+  .bannerHome {
+    background-position: center;
+  }
+
+  .introduction {   
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    gap: 2.5rem;
+    // background-color: rgb(132, 92, 92);
+  
+    & > p {
+      font-size: 4rem;
+     
     }
 
+    & > button {
+      // padding: 1rem 1.6rem;
+      // text-transform: uppercase;
+      // background-color: $golden;
+      // font-weight: 500;
+      // letter-spacing: 0.2rem;
+      // color: $white0;
+      // cursor: pointer;
+      // transition: .2s all;
+      background-color: transparent;
+      font-size: 1.2rem;
+      border: 1px solid $golden;
+
+
+    }
   }
 }

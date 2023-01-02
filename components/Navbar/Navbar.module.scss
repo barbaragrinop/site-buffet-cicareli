@@ -5,6 +5,7 @@
     // filter: blur(0.6);
     display: flex;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     justify-content: flex-end;
     align-items: center;
     height: 4rem;
@@ -19,7 +20,7 @@
 .navbar {
     display: flex;
     height: 100%;
-    font-family: 'Source Serif Pro Italic';
+    font-family: 'Source Serif Pro Italic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     & > ul {
         list-style: none;
