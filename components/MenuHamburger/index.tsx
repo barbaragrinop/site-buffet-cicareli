@@ -6,9 +6,6 @@ import { ItemsMenu } from "../../utils/items-menu";
 import styles from "./MenuHamburger.module.scss";
 
 export default function MenuHamburger() {
-  const isActive = document.querySelectorAll(".active");
-  console.log("isActive", isActive);
-
   const [isShow, setIsShow] = useState<boolean>(false);
   const { pathname } = useRouter();
 
