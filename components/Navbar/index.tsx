@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { ItemsMenu } from "../../utils/items-menu";
+import classNames from "classnames";
 import MenuHamburger from "../MenuHamburger";
 import styles from "./Navbar.module.scss";
 
@@ -21,37 +22,39 @@ export default function Navbar() {
         height={50}
         alt="Logo do Buffet Cicareli"
       />
-      <nav className={styles.navbar}>
-        <ul className={styles.listNavbar}>
-          {ItemsMenu.map(({ title, url }, index: number) => (
-            <li className={styles.itemsMenu} key={index}>
-              <Link
-                href={url}
-                style={
-                  pathname === url
-                    ? { color: "white", fontWeight: "bold" }
-                    : { color: "black" }
-                }
-              >
-                {title}
-              </Link>
+      <div className={styles.menuEnavbar}>
+        <nav className={styles.navbar}>
+          <ul className={styles.listNavbar}>
+            {ItemsMenu.map(({ title, url }, index: number) => (
+              <li className={styles.itemsMenu} key={index}>
+                <Link
+                  href={url}
+                  style={
+                    pathname === url
+                      ? { color: "white", fontWeight: "bold" }
+                      : { color: "white" }
+                  }
+                >
+                  {title}
+                </Link>
+              </li>
+            ))}
+            <li
+              role="button"
+              className={`
+              ${
+                pathname == "/orcamento"
+                  ? classNames(styles.btnOrcamento, styles.active)
+                  : styles.btnOrcamento
+              } `}
+              onClick={() => push("/orcamento")}
+            >
+              Peça um orçamento
             </li>
-          ))}
-          <li
-            role="button"
-            className={styles.btnOrcamento}
-            onClick={() => push("/orcamento")}
-            style={
-              pathname === "/orcamento"
-                ? { color: "white", backgroundColor: "#CBB98A" }
-                : { color: "black" }
-            }
-          >
-            Peça um orçamento
-          </li>
-        </ul>
-      </nav>
-      <MenuHamburger />
+          </ul>
+        </nav>
+        <MenuHamburger />
+      </div>
     </header>
   );
 }

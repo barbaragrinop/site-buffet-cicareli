@@ -1,23 +1,25 @@
 @use '../../styles/_index.scss' as *;
 
 .header {
-    background-color: rgba($black2, 0.7);
+    background-color: rgba($black0, 0.7);
+    // filter: blur(0.6);
     display: flex;
-    justify-content: end;
+    backdrop-filter: blur(5px);
+    justify-content: flex-end;
     align-items: center;
     height: 4rem;
-    position: sticky;
+    position: fixed;
     position: -webkit-sticky; /* Safari */
     top: 0;
     z-index: 10;
     min-width: 100vw;
+    color: white;
 }
 
 .navbar {
     display: flex;
     height: 100%;
     font-family: 'Source Serif Pro Italic';
-
 
     & > ul {
         list-style: none;
@@ -28,6 +30,8 @@
         align-items: center;
 
         & > li {
+            font-weight: 100;
+
                 & > a {
                     text-decoration: none;
         
@@ -49,8 +53,9 @@
     padding: .5rem .875rem;
     font-family: 'Manrope';
     text-transform: uppercase;
+    color: white;
     font-size: .875rem;
-    font-weight: 500;
+    font-weight: 100;
     letter-spacing: .0625rem;
 
     &:hover {
@@ -62,6 +67,11 @@
         -o-transition: background-color .2s ease-out;
         transition: background-color .2s ease-out;
     }
+
+    &.active  {
+        color: $white0;
+        background-color: $golden;
+    }
 }
 
 .logoNavbar {
@@ -69,12 +79,18 @@
     cursor: pointer;
 }
 
+.menuEnavbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .navItemActive  {
     color: $white0;
     font-weight: 700; 
 }
 
-@media screen and (max-width:$max-cellphone) {
+@media screen and (max-width:$max-tablet) {
 
     .itemsMenu {
             display: none;
@@ -84,6 +100,8 @@
         color: $golden;
     }
 
-
+    .active {
+        color: white;
+    }
 }
 

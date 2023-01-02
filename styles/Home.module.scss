@@ -1,3 +1,5 @@
+@use './_index.scss' as *;
+
 
 .bodyAll {
   box-sizing: border-box;
@@ -5,4 +7,52 @@
   padding: 0;
   // position: relative;
   font-family: 'Source Serif Pro';
+  position: relative;
+}
+
+.bannerHome {
+  background-image: url('../public/banner-home.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.introduction {
+  padding: 10.6rem 7.3rem;
+  color: white;
+  // display: flex;
+  // height: 50vh;
+  // background:red;
+  
+
+  & > p {
+    font-family: "Source Serif Pro Italic";
+    font-size: 4.5rem;
+    font-weight: 700;
+  }
+
+  & > span {
+    font-family: "Source Serif Pro";
+    display: block;
+    margin-top: 1.25rem;
+    margin-bottom: 2.1875rem;
+    font-size: 1.3rem;
+  }
+
+  & > button {
+    padding: 1rem 1.6rem;
+    text-transform: uppercase;
+    background-color: $golden;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    color: $white0;
+    cursor: pointer;
+    transition: .2s all;
+
+    &:hover {
+
+    }
+
+  }
 }

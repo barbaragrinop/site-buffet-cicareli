@@ -1,7 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Navbar from "../components/Navbar";
-import MenuHamburger from "../components/MenuHamburger";
 
 export default function Home() {
   return (
@@ -13,6 +12,15 @@ export default function Home() {
         <meta name="theme-color" content="#F2F6FA" />
       </Head>
       <Navbar />
+      <div className={styles.bannerHome}>
+        <div className={styles.introduction}>
+          <p>
+            Buffet Cicareli <br /> desde 1970.
+          </p>
+          <span>Eventos Gourmet, Sociais e Corporativos</span>
+          <button>Saber Mais</button>
+        </div>
+      </div>
     </div>
   );
 }
