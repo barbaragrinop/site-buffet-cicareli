@@ -1,0 +1,39 @@
+@use '../../styles/_index.scss' as *;
+
+
+.backgroundQM {
+    background-color: $bege;
+    height: 100vh;
+    // padding-left: 10.4%;
+    // padding-right: 10.4%;
+    padding-top: 10%;
+
+    display: flex;
+    gap:2rem;
+
+}
+
+.explicacao {
+
+    & > p {
+
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        justify-items: flex-start;
+        gap: 1rem;
+        text-transform: uppercase;
+        font-family: "Manrope";
+        color: $dark-green;
+        font-size: 1.3rem;
+
+        & > img {
+            height: 2rem;
+        }
+    
+        & > p {
+            text-align: center;
+        }
+    }
+
+}
