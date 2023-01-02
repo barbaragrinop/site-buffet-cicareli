@@ -29,15 +29,8 @@ export default function MenuHamburger() {
         <div className={styles.itemsMenuHamburger}>
           <ul>
             {ItemsMenu.map(({ title, url }, index: number) => (
-              <li className={styles.itemsMenu} key={index}>
-                <Link
-                  href={url}
-                  // style={
-                  //   pathname === url
-                  // }
-                >
-                  {title}
-                </Link>
+              <li className={classNames()} key={index}>
+                <Link href={url}>{title}</Link>
               </li>
             ))}
           </ul>
