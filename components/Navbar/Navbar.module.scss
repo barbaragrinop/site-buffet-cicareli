@@ -6,6 +6,8 @@
     display: flex;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    -ms-backdrop-filter: blur(5px);
     justify-content: flex-end;
     align-items: center;
     height: 4rem;
