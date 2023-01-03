@@ -1,37 +1,93 @@
 @use '../../styles/_index.scss' as *;
 
+.fullbody {
+    background-color: $bege;
+}
+
 
 .backgroundQM {
-    background-color: $bege;
-    height: 100vh;
-    // padding-left: 10.4%;
-    // padding-right: 10.4%;
-    padding-top: 10%;
     display: flex;
     gap:2rem;
+    justify-content: center;
+    padding: 10.6rem 8.6rem;
+    background-color: $bege;
 
 }
 
 .explicacao {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+
+    
 
     & > p {
-
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        justify-items: flex-start;
-        gap: 0.2rem;
+        display: block;
         text-transform: uppercase;
         font-family: "Manrope";
         color: $dark-green;
-        font-size: 1.3rem;
+        font-size: 1rem;
 
         & > img {
-            height: 2rem;
+            height: 1.3rem;
         }
-    
-        & > p {
-            text-align: center;
+
+    }
+
+    & > span {
+        width: 20rem;
+        font-size: 3.5rem;
+        font-family: 'Source Serif Pro Italic';
+        font-weight: bold;
+        line-height: 3.8rem;
+        margin-block: 1.5rem;
+        color: $dark-green;
+    }
+
+}
+
+.imagem {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.historia {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: justify;
+    font-family: "Manrope";
+    color: $dark-green;
+}
+
+.responsiveImg {
+    min-width: auto;
+    height: auto;
+    width: 100%;
+}
+
+@media (max-width: 1224px) {
+    .backgroundQM {
+        padding: 10rem 4rem;
+    }
+}
+
+@media (max-width: 1036px) {
+    .backgroundQM {
+        padding: 10rem 4rem;
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
+
+    .explicacao {
+        width: 100% ;
+
+        & > span {
+            width: 100%;
         }
     }
 
