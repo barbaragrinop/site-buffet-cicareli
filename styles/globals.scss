@@ -53,8 +53,8 @@ html {
 
 @media screen and (max-width:$max-cellphone) { 
   * {
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
-    font-size: 70%;
+    // font-size: 70%;
   }
 }
