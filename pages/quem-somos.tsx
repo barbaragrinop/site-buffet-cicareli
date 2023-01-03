@@ -14,15 +14,15 @@ export default function QuemSomos() {
             <Image
               src="/icons/tree-left.svg"
               alt="Símbolo Cicareli"
-              width={90}
-              height={90}
+              width={70}
+              height={70}
             />
             <span>Quem Somos</span>
             <Image
               src="/icons/tree-right.svg"
               alt="Símbolo Cicareli"
-              width={90}
-              height={90}
+              width={70}
+              height={70}
             />
           </p>
 
