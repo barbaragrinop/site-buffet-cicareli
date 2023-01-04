@@ -75,3 +75,26 @@ $height: 1rem;
     }   
 
 }
+
+@media screen and (max-width:$max-tablet) {
+    .itemsMenuHamburger {
+        & > ul  {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        & > ul > li > a {
+            font-size: 2.3rem;
+        }
+
+       
+    }
+}
+
+@media (min-width: 448px) {
+    .btnOrcamento {
+        display: none
+    }
+}

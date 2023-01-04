@@ -29,10 +29,13 @@ export default function MenuHamburger() {
         <div className={styles.itemsMenuHamburger}>
           <ul>
             {ItemsMenu.map(({ title, url }, index: number) => (
-              <li className={classNames()} key={index}>
+              <li key={index}>
                 <Link href={url}>{title}</Link>
               </li>
             ))}
+            <li className={styles.btnOrcamento}>
+              <Link href={"/orcamento"}>Peça um orçamento</Link>
+            </li>
           </ul>
         </div>
       )}
