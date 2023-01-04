@@ -60,7 +60,8 @@ export default function QuemSomos() {
             alt="Foto de uma mesa posta para o jantar"
             width={470}
             height={600}
-            // className={styles.responsiveImg}
+            // className={}
+            className={styles.responsiveImg}
           />
         </div>
       </div>
