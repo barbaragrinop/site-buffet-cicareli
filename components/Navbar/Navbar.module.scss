@@ -101,11 +101,11 @@
 @media screen and (max-width:$max-tablet) {
 
     .header {
-        min-width: 100%;
+        min-width: 100vw;
     }
 
     .itemsMenu {
-            display: none;
+        display: none;
     }   
 
     .btnOrcamento {
