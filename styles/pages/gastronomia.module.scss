@@ -6,7 +6,7 @@
     align-items: center;
     overflow-y: hidden;
     background: $based-green;
-    height: 100%;
+    height: 100vh;
     gap: 3rem;
 }
 
@@ -50,7 +50,6 @@
 }
 
 .imagem {
-    min-width: 100%;
     height:auto;
     overflow: hidden;
 
@@ -59,10 +58,13 @@
         height: 100%;
     }
 }
+
+
 @media (max-width: 944px) {
     .main {
         display: flex;
         flex-direction: column-reverse;
+        height: 100%;
     }
 
     .descricao {
@@ -79,12 +81,11 @@
     
 
     .imagem {
-        width: 83%;
-        height: auto;
+       display: flex;
+       justify-content: center;
 
         & > img {
-            min-width: 100%;
-            height: auto;
+            width: 28rem;
         }
     }
 }

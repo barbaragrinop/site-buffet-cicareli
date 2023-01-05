@@ -28,11 +28,12 @@ export default function gastronomia() {
           <div className={styles.titulo}>
             <h1>Gastronomia</h1>
             <Image
-              style={{ backgroundSize: "contain" }}
+              style={{ objectFit: "contain", objectPosition: "18% 100%" }}
               src={"/icons/tree-right.svg"}
               alt="Símbolo Cicareli virado para a direita"
               width={30}
               height={30}
+              // objectFit
             />
           </div>
 
