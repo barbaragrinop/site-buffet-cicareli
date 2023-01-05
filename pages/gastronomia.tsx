@@ -28,6 +28,7 @@ export default function gastronomia() {
           <div className={styles.titulo}>
             <h1>Gastronomia</h1>
             <Image
+              style={{ backgroundSize: "contain" }}
               src={"/icons/tree-right.svg"}
               alt="Símbolo Cicareli virado para a direita"
               width={30}

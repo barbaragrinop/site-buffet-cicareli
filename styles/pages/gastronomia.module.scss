@@ -6,7 +6,7 @@
     align-items: center;
     overflow-y: hidden;
     background: $based-green;
-    height: 100vh;
+    height: 100%;
     gap: 3rem;
 }
 
@@ -50,13 +50,13 @@
 }
 
 .imagem {
-    width: 50%;
-    height: 100%;
+    min-width: 100%;
+    height:auto;
     overflow: hidden;
 
     & > img {
         width: 40rem;
-        height: 100vh;
+        height: 100%;
     }
 }
 @media (max-width: 944px) {
