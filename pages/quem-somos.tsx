@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import Navbar from "../components/Navbar";
-import TreeIcon from "../public/icons/tree.svg";
 import styles from "../styles/pages/quem-somos.module.scss";
 
 export default function QuemSomos() {
