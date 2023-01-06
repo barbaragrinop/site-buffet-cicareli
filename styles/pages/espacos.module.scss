@@ -1,0 +1,83 @@
+@use '../../styles/_index.scss' as *;
+
+.main {
+    background-color: $white0;
+    height: 50%;    
+    padding-bottom: 4rem;
+    // background-color: #23e232;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo {
+    padding-top: 8.6rem;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+
+    & > span {
+        font-size: 2.875rem;
+        font-family: "Source Serif Pro Italic";
+        font-weight: 700;
+        color: $based-green;
+    }
+}
+
+.descricao {
+    width: 100%;
+    font-family: "Manrope";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: $off-black;
+    text-align: center;
+    gap: 1rem;
+
+    & > p {
+        width: 38rem;
+    }
+    // text-align: center;
+}
+
+.espacosMain {
+    height: 100%;    
+    background-color: $pastel;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.card {
+
+    width: 12rem;
+    height: 18rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+
+    & > div {
+    width: 12rem;
+    height: 12rem;
+    background-color: $white0;
+    box-shadow: 4.5px 5.5px 45.4px rgba(70, 69, 69, 0.2),
+    29.8px 36.6px 174.8px rgba(133, 132, 132, 0.067),
+    184px 226px 296px rgba(197, 195, 195, 0.027);
+    border-radius: 10px;
+
+        // border: 1px solid red;
+    }
+
+    & > p {
+        padding-inline: 05px;
+    }
+
+}
