@@ -4,7 +4,6 @@
     background-color: $white0;
     height: 50%;    
     padding-bottom: 4rem;
-    // background-color: #23e232;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,28 +55,76 @@
 }
 
 .card {
-
     width: 12rem;
     height: 18rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.7rem;
+    word-break: keep-all;
+    color: $based-green;
 
     & > div {
-    width: 12rem;
-    height: 12rem;
-    background-color: $white0;
-    box-shadow: 4.5px 5.5px 45.4px rgba(70, 69, 69, 0.2),
-    29.8px 36.6px 174.8px rgba(133, 132, 132, 0.067),
-    184px 226px 296px rgba(197, 195, 195, 0.027);
-    border-radius: 10px;
-
-        // border: 1px solid red;
+        width: 12rem;
+        height: 12rem;
+        background-color: $white0;
+        box-shadow: 4.5px 5.5px 45.4px rgba(70, 69, 69, 0.2),
+        29.8px 36.6px 174.8px rgba(133, 132, 132, 0.067),
+        184px 226px 296px rgba(197, 195, 195, 0.027);
+        border-radius: 10px;
     }
 
-    & > p {
+    & > .titleEspacos {
+        font-family: "Source Serif Pro Italic";
         padding-inline: 05px;
+        font-weight: 800;
+    }
+    
+    & > .descricaoEspacos {
+        font-family: "Manrope";
+    }
+}
+
+
+@media (min-width: 628px) and (max-width: 992px)  {
+
+    .card {
+        width: 16rem;
     }
 
+    .espacosMain {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        justify-items: center
+    }
 }
+
+@media (max-width: 627px) {
+    .main {
+        padding-inline: 1rem;
+    }
+
+    .espacosMain {
+        display: grid;
+        grid-template-columns: repeat(1, 100%);
+        justify-items: center
+    }
+
+    .descricao > p {
+        width: 80%;
+    }
+
+    .card {
+        height: auto;
+        width: 90%;
+
+        & > div {
+            width: 100%
+
+        }
+        & > .titleEspacos {
+            font-size: 1.5rem;
+        }
+    }
+}
+

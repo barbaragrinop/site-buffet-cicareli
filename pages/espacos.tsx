@@ -47,27 +47,17 @@ export default function espacos() {
         </div>
       </div>
       <div className={styles.espacosMain}>
-        {EspacosFake.forEach(x => )}
-        <div className={styles.card}>
-          <div>img</div>
-          <p>titulo</p>
-          <p>descricao</p>
-        </div>
-        <div className={styles.card}>
-          <div>img</div>
-          <p>titulo</p>
-          <p>descricao</p>
-        </div>
-        <div className={styles.card}>
-          <div>img</div>
-          <p>titulo</p>
-          <p>descricao</p>
-        </div>
-        <div className={styles.card}>
-          <div>img</div>
-          <p>titulo</p>
-          <p>descricao</p>
-        </div>
+        {EspacosFake.map((x, index) => (
+          <div className={styles.card}>
+            <div>img</div>
+            <p className={styles.titleEspacos}>titulo</p>
+            <p className={styles.descricaoEspacos}>
+              A sede administrativa e gastronômica está instalada em um prédio
+              em São Paulo, onde produzimos para atender em todo o território
+              nacional.{" "}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
