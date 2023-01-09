@@ -52,7 +52,7 @@
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    // overflow: hidden;
+    overflow: hidden;
     position: relative;
     z-index: 40 ;
     margin-inline: 4rem;
@@ -79,9 +79,6 @@
     }
 }
 
-.icon {
-    background-color: red;
-}
 
 .slideToPrevItem {
     position: absolute;

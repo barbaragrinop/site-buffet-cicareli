@@ -115,7 +115,7 @@ export default function depoimentos() {
         {carouselFragment}
 
         <button className={styles.slideToNextItem} onClick={slideToNextItem}>
-          <BsFillArrowRightCircleFill className={styles.icon} />
+          <BsFillArrowRightCircleFill />
         </button>
       </div>
     </>
