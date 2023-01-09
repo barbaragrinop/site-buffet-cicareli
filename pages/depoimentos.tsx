@@ -108,15 +108,17 @@ export default function depoimentos() {
           <p>Vem saber o que falam de nós!</p>
         </div>
       </div>
-      <div className={styles.espacosMainCarousel}>
-        <button className={styles.slideToPrevItem} onClick={slideToPrevItem}>
-          <BsFillArrowLeftCircleFill />
-        </button>
-        {carouselFragment}
+      <div className={styles.resizeHCarousel}>
+        <div className={styles.espacosMainCarousel}>
+          <button className={styles.slideToPrevItem} onClick={slideToPrevItem}>
+            <BsFillArrowLeftCircleFill />
+          </button>
+          {carouselFragment}
 
-        <button className={styles.slideToNextItem} onClick={slideToNextItem}>
-          <BsFillArrowRightCircleFill />
-        </button>
+          <button className={styles.slideToNextItem} onClick={slideToNextItem}>
+            <BsFillArrowRightCircleFill />
+          </button>
+        </div>
       </div>
     </>
   );
