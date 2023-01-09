@@ -1,0 +1,130 @@
+@use '../../styles/_index.scss' as *;
+
+.main {
+    background-color: $white0;
+    height: 50%;    
+    padding-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo {
+    padding-top: 8.6rem;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+
+    & > span {
+        font-size: 2.875rem;
+        font-family: "Source Serif Pro Italic";
+        font-weight: 700;
+        color: $based-green;
+    }
+}
+
+.descricao {
+    width: 100%;
+    font-family: "Manrope";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: $off-black;
+    text-align: center;
+    gap: 1rem;
+
+    & > p {
+        width: 38rem;
+    }
+    // text-align: center;
+}
+
+.espacosMain {
+    height: 100%;    
+    background-color: $white0;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.card {
+    background-color: $bege;
+    padding: 1.5rem 4rem;
+    width: 12rem;
+    height: 8.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    word-break: keep-all;
+    color: $based-green;
+    font-size: 0.8rem;
+    font-family: "Manrope";
+    position: relative;
+
+    & > .line {
+        width: 4rem;
+        height: 1.2px;
+        background-color: $golden;
+        // position: absolute;
+    }
+
+
+    & > .depoimento {
+        // font-weight: 800;
+        text-align: center;
+    }  
+    
+    & > .autor {
+        color: $golden;
+    }
+}
+
+
+@media (min-width: 628px) and (max-width: 992px)  {
+
+    .card {
+        width: 14rem;
+        height: auto;
+    }
+
+    .espacosMain {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        justify-items: center;
+    }
+}
+
+@media (max-width: 627px) {
+    .main {
+        padding-inline: 1rem;
+    }
+
+    .espacosMain {
+        display: grid;
+        grid-template-columns: repeat(1, 100%);
+        justify-items: center
+    }
+
+    .descricao > p {
+        width: 80%;
+    }
+
+    .card {
+        height: auto;
+        width: 77%;
+        padding: 1.5rem 2rem;
+
+        & > .depoimento {
+            font-size: 1.5rem;
+        }
+    }
+}
+
