@@ -91,7 +91,7 @@
 .slideToNextItem{
     position: absolute;
     z-index: 50;
-    right: 0;
+    right: 4px;
     top: 50%;
     transform: translateY(-50%);
 
@@ -146,6 +146,7 @@
 }
 
 @media (max-width: 627px) {
+    
     .main {
         padding-inline: 1rem;
     }
@@ -153,7 +154,9 @@
     .espacosMainCarousel {
         display: grid;
         grid-template-columns: repeat(1, 100%);
-        justify-items: center
+        justify-items: center;
+        margin-inline: 1.2rem;
+
     }
 
     .descricao > p {
@@ -165,7 +168,7 @@
         margin-inline: 2rem;
         // padding: 1.5rem 2rem;
         font-size: 0.8rem;
-        padding: 1.5rem 3rem;
+        padding: 1.5rem 2rem;
 
         
 

@@ -13,7 +13,7 @@ export default function depoimentos() {
   const { carouselFragment, slideToNextItem, slideToPrevItem } =
     useSpringCarousel({
       withLoop: true,
-      // gutter: 38,
+      gutter: 12,
       // startEndGutter: 60,
       itemsPerSlide: 4,
 
