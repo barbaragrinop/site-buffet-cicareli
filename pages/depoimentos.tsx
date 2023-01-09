@@ -4,7 +4,10 @@ import React from "react";
 import { useSpringCarousel } from "react-spring-carousel";
 import Navbar from "../components/Navbar";
 import styles from "../styles/pages/depoimentos.module.scss";
-import { DepoimentosFake } from "../utils/depoimentos-fake";
+import {
+  BsFillArrowLeftCircleFill,
+  BsFillArrowRightCircleFill,
+} from "react-icons/bs";
 
 export default function depoimentos() {
   const { carouselFragment, slideToNextItem, slideToPrevItem } =
@@ -105,7 +108,16 @@ export default function depoimentos() {
           <p>Vem saber o que falam de nós!</p>
         </div>
       </div>
-      <div className={styles.espacosMainCarousel}>{carouselFragment}</div>
+      <div className={styles.espacosMainCarousel}>
+        <button className={styles.slideToPrevItem} onClick={slideToPrevItem}>
+          <BsFillArrowLeftCircleFill />
+        </button>
+        {carouselFragment}
+
+        <button className={styles.slideToNextItem} onClick={slideToNextItem}>
+          <BsFillArrowRightCircleFill className={styles.icon} />
+        </button>
+      </div>
     </>
   );
 }

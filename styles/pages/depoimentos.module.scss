@@ -52,7 +52,53 @@
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    overflow: hidden;
+    // overflow: hidden;
+    position: relative;
+    z-index: 40 ;
+    margin-inline: 4rem;
+
+
+
+    & > button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        > svg {
+            color: $based-green;
+            font-size: 1.5rem;
+        transition: .2s ease-out all;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        
+        // width: 1rem;
+    }
+}
+
+.icon {
+    background-color: red;
+}
+
+.slideToPrevItem {
+    position: absolute;
+    z-index: 50;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slideToNextItem{
+    position: absolute;
+    z-index: 50;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+
 }
 
 .card {
