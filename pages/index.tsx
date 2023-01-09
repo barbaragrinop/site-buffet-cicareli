@@ -1,8 +1,11 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Navbar from "../components/Navbar";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const { push } = useRouter();
+
   return (
     <div className={styles.bodyAll}>
       <Head>
@@ -19,7 +22,7 @@ export default function Home() {
             Buffet Cicareli <br /> desde 1970.
           </p>
           <span>Eventos Gourmet, Sociais e Corporativos</span>
-          <button>Saber Mais</button>
+          <button onClick={() => push("quem-somos")}>Saber Mais</button>
         </div>
       </div>
     </div>
