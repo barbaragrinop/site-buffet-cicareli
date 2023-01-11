@@ -1,0 +1,29 @@
+@use '../../styles/_index.scss' as *;
+
+.main {
+    display: flex;
+    flex-direction: column; 
+    gap: 4px;
+    width: 220px;
+    
+    & > label {
+        font-family: "Manrope";
+        color: $based-green;
+    }   
+
+    & > input {
+        height: 2rem;
+        padding-left: 0.3rem ;
+        width: 100%;
+        border: none;
+        color:$based-green;
+        border: 1px $bege solid;
+
+        &:focus {
+            border: 1px $based-green solid;
+            outline: none;
+        }
+    }
+
+
+}
