@@ -1,19 +1,19 @@
 @use '../../styles/_index.scss' as *;
 
 .main {
+    width: 100%;
     display: flex;
-    flex-direction: column; 
-    gap: 4px;
-    width: 220px;
+    flex-direction: column;
     
     & > label {
         font-family: "Manrope";
         color: $based-green;
+        display: block;
     }   
 
     & > input {
         height: 2rem;
-        padding-left: 0.3rem ;
+        padding-left: 0.3rem;
         width: 100%;
         border: none;
         color:$based-green;
@@ -25,5 +25,19 @@
         }
     }
 
+    & > textarea {
+        height: 10rem;
+        padding: 0.6rem;
+        width: 100%;
+        border: none;
+        color:$based-green;
+        border: 1px $bege solid;
+        resize: none;
+        font-family: "Manrope";
 
+        &:focus {
+            border: 1px $based-green solid;
+            outline: none;
+        }
+    }
 }

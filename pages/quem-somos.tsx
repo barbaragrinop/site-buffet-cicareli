@@ -56,7 +56,7 @@ export default function QuemSomos() {
             </p>
             <p>
               Assim é a nossa história, de geração para geração, e com muito
-              amor cuidando de cada festa como se fosse única, porque se pra
+              amor cuidando de cada festa como se fosse única, porque se para
               vocês é especial, para nós também é!
             </p>
           </div>

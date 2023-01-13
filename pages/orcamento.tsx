@@ -4,8 +4,51 @@ import React from "react";
 import Input from "../components/Input";
 import Navbar from "../components/Navbar";
 import styles from "../styles/pages/orcamento.module.scss";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { FormOrcamento } from "../interfaces/FormOrcamento";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+const schema = yup.object().shape({
+  nome: yup.string().required("Campo obrigatório"),
+  sobrenome: yup.string().required("Campo obrigatório"),
+  email: yup.string().required("Campo obrigatório"),
+  telefone: yup.string().required("Campo obrigatório"),
+  tipoevento: yup.string().required("Campo obrigatório"),
+  dataevento: yup.string().required("Campo obrigatório"),
+  numconvidados: yup.string().required("Campo obrigatório"),
+  localevento: yup.string().required("Campo obrigatório"),
+  mensagem: yup.string()
+});
+
 
 export default function orcamento() {
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid, isSubmitting },
+  } = useForm<FormOrcamento>({
+    defaultValues: {
+      nome: "",
+      sobrenome: "", 
+      email: "",
+      telefone: "",
+      tipoevento: "",
+      dataevento: undefined,
+      numconvidados: 0,
+      localevento: "",
+      mensagem: "",
+    },
+    mode: "all",
+    resolver: yupResolver(schema),
+  });
+  
+  function onSubmit(ev: any) {~
+    ev.preventDefault()
+    alert("asljkdjaklsdjjkasl")
+  }
+
   return (
     <div className={styles.main}>
       <Head>
@@ -30,8 +73,37 @@ export default function orcamento() {
             height={649}
           />
         </div>
-        <form className={styles.formContato}>
-          <Input name="nome" type="text" label="Nome" required />
+        <form className={styles.formContato} onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <Input name="nome" type="text" label="Nome" register={register} error={errors.nome} />
+            <Input name="sobrenome" type="text" label="Sobrenome" register={register} error={errors.sobrenome} />
+
+          </div>
+          <div>
+            <Input name="email" type="email" label="E-mail" register={register} error={errors.email} />
+            <Input name="telefone" type="text" mask="(99) 99999-9999" label="Telefone" register={register} error={errors.telefone} />
+          </div>
+          <div>
+            <Input name="tipoevento" type="text" label="Tipo de Evento" register={register} error={errors.tipoevento}/>
+            <Input name="dataevento" type="date" label="Data do Evento" register={register} error={errors.dataevento}/>
+          </div>
+          <div>
+            <Input name="numconvidados" type="number" label="N.º de convidados" register={register}error={errors.numconvidados} />
+            <Input name="localevento" type="text" label="Local do Evento" register={register} error={errors.localevento}/>
+          </div>
+          <div>
+            <Input name="mensagem" type="text" label="Mensagem" as="textarea" register={register}/>
+          </div>
+          <div className={styles.informacoes}>
+            <p>Campos obrigatórios*</p>
+            <p>Ao enviar sua mensagem,
+               você autoriza receber 
+               comunicações do Grupo Cicareli, 
+               podendo cancelar a qualquer momento.
+                Consulte nossa <b>Política de Privacidade</b>.</p>
+          </div>
+          <button type="submit" disabled={!isValid && isSubmitting}>Enviar dados</button>
+
         </form>
       </div>
     </div>
