@@ -28,6 +28,7 @@ export default function orcamento() {
     register,
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
+    getValues
   } = useForm<FormOrcamento>({
     defaultValues: {
       nome: "",
@@ -46,8 +47,11 @@ export default function orcamento() {
   
   function onSubmit(ev: any) {~
     ev.preventDefault()
-    alert("asljkdjaklsdjjkasl")
+    console.log(getValues())
+    console.log(isValid)
+    
   }
+  
 
   return (
     <div className={styles.main}>
@@ -75,35 +79,34 @@ export default function orcamento() {
         </div>
         <form className={styles.formContato} onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <Input name="nome" type="text" label="Nome" register={register} error={errors.nome} />
-            <Input name="sobrenome" type="text" label="Sobrenome" register={register} error={errors.sobrenome} />
+            <Input type="text" label="Nome" register={register("nome")} error={errors.nome?.message} />
+            <Input type="text" label="Sobrenome" register={register("sobrenome")} error={errors.sobrenome?.message} />
 
           </div>
           <div>
-            <Input name="email" type="email" label="E-mail" register={register} error={errors.email} />
-            <Input name="telefone" type="text" mask="(99) 99999-9999" label="Telefone" register={register} error={errors.telefone} />
+            <Input name="email" type="email" label="E-mail" register={register("email")} error={errors.email?.message} />
+            <Input name="telefone" type="text" mask="(99) 99999-9999" label="Telefone" register={register("telefone")} error={errors.telefone?.message} />
           </div>
           <div>
-            <Input name="tipoevento" type="text" label="Tipo de Evento" register={register} error={errors.tipoevento}/>
-            <Input name="dataevento" type="date" label="Data do Evento" register={register} error={errors.dataevento}/>
+            <Input name="tipoevento" type="text" label="Tipo de Evento" register={register("tipoevento")} error={errors.tipoevento?.message}/>
+            <Input name="dataevento" type="date" label="Data do Evento" register={register("dataevento")} error={errors.dataevento?.message}/>
           </div>
           <div>
-            <Input name="numconvidados" type="number" label="N.º de convidados" register={register}error={errors.numconvidados} />
-            <Input name="localevento" type="text" label="Local do Evento" register={register} error={errors.localevento}/>
+            <Input name="numconvidados" type="number" label="N.º de convidados" register={register("numconvidados")} error={errors.numconvidados?.message} />
+            <Input name="localevento" type="text" label="Local do Evento" register={register("localevento")} error={errors.localevento?.message}/>
           </div>
           <div>
-            <Input name="mensagem" type="text" label="Mensagem" as="textarea" register={register}/>
+            <Input name="mensagem" type="text" label="Mensagem" as="textarea" register={register("mensagem")} error={errors.mensagem?.message}/>
           </div>
           <div className={styles.informacoes}>
             <p>Campos obrigatórios*</p>
             <p>Ao enviar sua mensagem,
-               você autoriza receber 
-               comunicações do Grupo Cicareli, 
-               podendo cancelar a qualquer momento.
-                Consulte nossa <b>Política de Privacidade</b>.</p>
+              você autoriza receber 
+              comunicações do Grupo Cicareli, 
+              podendo cancelar a qualquer momento.
+              Consulte nossa <b>Política de Privacidade</b>.</p>
           </div>
-          <button type="submit" disabled={!isValid && isSubmitting}>Enviar dados</button>
-
+          <button type="submit" disabled={!isValid || isSubmitting} onClick={onSubmit}>Enviar dados</button>
         </form>
       </div>
     </div>

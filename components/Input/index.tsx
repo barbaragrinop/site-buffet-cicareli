@@ -1,5 +1,5 @@
 import React, { HTMLInputTypeAttribute, useEffect } from "react";
-import { FieldError } from "react-hook-form";
+import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { ErrorMessage } from "../ErrorMessage";
 import styles from "./Input.module.scss";
 import InputMask from 'react-input-mask';
@@ -12,19 +12,12 @@ type InputProps = React.DetailedHTMLProps<
 type TextProps = InputProps & {
   label: string
   as?: "textarea"
-  register?: any | undefined
-  error?: FieldError | undefined 
+  register?: UseFormRegisterReturn<string>
+  error?: string
   mask?: string 
 }
 
-export default function Input({ name, label, ...props }: TextProps) {
-
-  
-  useEffect(() => {
-
-  }, [props.error])
-
-
+export default function Input({ name, register, label, mask,  ...props }: TextProps) {
   return (
     <div className={styles.main}>
       <label htmlFor={name}>
@@ -33,21 +26,22 @@ export default function Input({ name, label, ...props }: TextProps) {
       </label>
       {props.as === "textarea" ? (
         <>
-          <textarea {...props.register(name)} id={name} name={name}></textarea>
-          {props.error?.message ? 
-            <ErrorMessage error={props.error?.message} /> : <></>}
+          <textarea {...register} ></textarea>
+          {props.error ? 
+            <ErrorMessage error={props.error} /> : <></>}
         </>
-      ) : props.mask ? (
+      ) : mask ? (
         <>
-          <InputMask {...props.register(name)} type={props.type} id={name} name={name} {...props} />
-          {props.error?.message ? 
-            <ErrorMessage error={props.error?.message} /> : <></>}
+        {/* @ts-ignore */}
+          <InputMask type={props.type} {...register} mask={mask} {...props}/>
+          {props.error ? 
+            <ErrorMessage error={props.error} /> : <></>}
         </>
       ) : (
         <>
-          <InputMask {...props.register(name)} type={props.type} id={name} name={name} {...props} />
-          {props.error?.message ? 
-            <ErrorMessage error={props.error?.message} /> : <></>}
+          <input type={props.type} {...register} {...props} />
+          {props.error ? 
+            <ErrorMessage error={props.error} /> : <></>}
         </>
       )}
     </div>

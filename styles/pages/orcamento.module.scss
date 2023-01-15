@@ -69,14 +69,11 @@
         }
 
         & > .informacoes {
-
             font-family: "Manrope";
             font-size: 0.7rem;
             display: flex;
             flex-direction: column;
             gap: 0.8rem;
-            // margin-bottom: ;
-
         }
 
         button {
@@ -85,6 +82,12 @@
             background-color: $black1;
             font-family: "Manrope";
             color: $white0;
+
+
+            &:disabled {
+                cursor: not-allowed;
+                background-color: rgba($color: $black1, $alpha: 0.5);
+            }
         }
     }
 }
