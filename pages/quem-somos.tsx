@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import Navbar from "../components/Navbar";
+// @ts-ignore
 import styles from "../styles/pages/quem-somos.module.scss";
 
 export default function QuemSomos() {
