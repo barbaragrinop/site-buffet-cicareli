@@ -46,19 +46,23 @@ export default function orcamento() {
 
   async function onSubmit(ev: any) {
     ev.preventDefault();
-    try {
-      const data = await fetch("https://localhost:3000/api/contact", {
-        method: "POST",
+    if(isValid) {
+      const res = await fetch("/api/sendgrid", {
+        body: JSON.stringify(getValues()),
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(getValues()),
+        method: "POST",
       });
 
-      console.log("data", data);
-    } catch (error: any) {
-      console.log("ERRO", error.response.body.errors);
+      const { error } = await res.json();
+      if (error) {
+        console.log(error);
+        return;
+      }
+      console.log(getValues());
     }
+
   }
 
   return (
