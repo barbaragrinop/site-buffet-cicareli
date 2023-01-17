@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import WhatsappIcon from "../components/WhatsappIcon";
 // @ts-ignore
 import styles from "../styles/pages/quem-somos.module.scss";
 
@@ -74,6 +75,7 @@ export default function QuemSomos() {
           />
         </div>
       </div>
+      <WhatsappIcon />
       <Footer/>
     </div>
   );

@@ -1,0 +1,83 @@
+@use '../../styles/_index.scss' as *;
+
+.footer {
+    min-width: 100%;
+    background-color: $black1;
+    color: #FFFFFF;
+    // padding-block: 20px;
+    font-family: "Manrope";
+    color: $dark-green;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba($white0, 0.3);
+    border-bottom: 1px solid $grey400;
+
+
+    & > .contato {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 1rem;
+
+        & > a {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            & > svg { 
+                color: rgba($white0, 0.3);
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+}
+
+.informacoes {
+    width: 80%;
+    display: flex;
+    gap: 6rem;
+
+    .detalhes {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        width: auto;
+
+        h2 {
+            color: white;
+            font-weight: 100;
+            padding-block: 0.9rem;
+            font-size: 1.3rem;
+            font-family: "Source Serif Pro Italic";
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: $white0;
+            font-family: "Manrope";
+            font-size: 0.8rem;
+            font-weight: 100;
+
+
+
+        }
+    }
+}
+
+@media (max-width: 700px) { 
+    .footer {
+        font-size: 12px;
+    }
+}
+

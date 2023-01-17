@@ -9,6 +9,7 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import WhatsappIcon from "../components/WhatsappIcon";
+import Footer from "../components/Footer";
 
 export default function depoimentos() {
   const { carouselFragment, slideToNextItem, slideToPrevItem } =
@@ -122,7 +123,7 @@ export default function depoimentos() {
         </div>
       </div>
       <WhatsappIcon />
-
+      <Footer />
     </>
   );
 }
