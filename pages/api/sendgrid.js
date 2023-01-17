@@ -1,25 +1,26 @@
-import sgMail from '@sendgrid/mail'
+import sendgrid from "@sendgrid/mail";
 
-// sgMail.setApiKey(process.env.SG_API_KEY!)
-
-export default async(req, res) => {
-  if(req.method === "POST" && process.env.SG_API_KEY) {
-  sgMail.setApiKey(process.env.SG_API_KEY)
-
-    const {nome, email, mensagem} = req.body
-    const msg = {
-      to: "barbarapereira123@hotmail.com", 
-      from: "babi.silva1163@gmail.com",
-      subject: "doido né ", 
-      text: `Email => ${email}`, 
-      html: `<strong>${mensagem}</strong>`
+async function sendEmail(req, res) {
+  try {
+    if (process.env.SG_API_KEY) {
+      sendgrid.setApiKey(process.env.SG_API_KEY);
+      const result = await sendgrid.send({
+        to: "barbarapereira123@hotmail.com", // Your email where you'll receive emails
+        from: "babi.silva1163@gmail.com", // your website email address here
+        subject: `${req.body.subject}`,
+        html: `<div>You've got a mail</div>`,
+      }).catch(error => {
+        return res.status(error.statusCode || 500).json({ error });
+      });
+      return res.status(200).json({ data: result });
+    } else {
+      // @ts-ignore
+      throw new Error({ statusCode: 500, message: 'Chave não está na .env!' })
     }
-
-    try  {
-      await sgMail.send(msg)
-      res.status(200).json({ success: true})
-    } catch(erro) {
-      res.status(400).json({ success: false})
-    }
+  } catch (error) {
+    // console.log(error);
+    return res.status(error.statusCode || 500).json({ error });
   }
 }
+
+export default sendEmail;
