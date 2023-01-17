@@ -10,7 +10,7 @@ async function sendEmail(req, res) {
         subject: `${req.body.subject}`,
         html: `<div>You've got a mail</div>`,
       }).catch(error => {
-        return res.status(error.statusCode || 500).json({ error });
+        return res.status(error.statusCode || 500).json({ error: error.response.body });
       });
       return res.status(200).json({ data: result });
     } else {
@@ -18,7 +18,9 @@ async function sendEmail(req, res) {
       throw new Error({ statusCode: 500, message: 'Chave não está na .env!' })
     }
   } catch (error) {
-    // console.log(error);
+    if (error.response) {
+      return res.status(error.statusCode || 500).json({ error: error.response.body });
+    }
     return res.status(error.statusCode || 500).json({ error });
   }
 }
