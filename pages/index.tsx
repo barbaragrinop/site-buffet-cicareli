@@ -22,7 +22,7 @@ export default function Home() {
           <p>
             Buffet Cicareli <br /> desde 1970.
           </p>
-          <span>Eventos Gourmet, Sociais e Corporativos</span>
+          <span>Eventos Sociais e Corporativos</span>
           <button onClick={() => push("quem-somos")}>Saber Mais</button>
         </div>
       </div>
