@@ -48,11 +48,6 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       res.status(200).json({success: true})
     } catch (error) {
       res.status(500).json({success: false})
-      
     }
   }
 }
-
-
-
-// export default sendEmail;

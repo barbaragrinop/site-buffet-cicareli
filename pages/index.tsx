@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Navbar from "../components/Navbar";
 import { useRouter } from "next/router";
+import WhatsappIcon from "../components/WhatsappIcon";
 
 export default function Home() {
   const { push } = useRouter();
@@ -25,6 +26,7 @@ export default function Home() {
           <button onClick={() => push("quem-somos")}>Saber Mais</button>
         </div>
       </div>
+      <WhatsappIcon />
     </div>
   );
 }
