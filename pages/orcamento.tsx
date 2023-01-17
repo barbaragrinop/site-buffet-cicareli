@@ -28,6 +28,7 @@ export default function orcamento() {
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
     getValues,
+    reset
   } = useForm<FormOrcamento>({
     defaultValues: {
       nome: "",
@@ -47,24 +48,28 @@ export default function orcamento() {
   const onSubmit = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
-    if(isValid) {
-      try {
-        const res = fetch("/api/sendgrid", {
-          method: "POST", 
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(getValues())
-        })
+    if(!isValid) return
+    
+    try {
+      const res = fetch("/api/sendgrid", {
+        method: "POST", 
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(getValues())
+      }).then(x => alert("DEU CERTO DMS"))
 
-        if(!(await res).ok) {
-          alert("não foi")
-        }
-      } catch( err: any) {
-        alert(err)
-        console.log("ERro", err)
-
+      // @ts-ignore
+      if(!res.ok) {
+        reset()
+        return
       }
+
+
+    } catch( err: any) {
+      alert(err)
+      console.log("ERro", err)
+
     }
   }
 
