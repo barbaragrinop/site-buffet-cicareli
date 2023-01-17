@@ -26,7 +26,6 @@ const schema = yup.object().shape({
 export default function orcamento() {
   const {
     register,
-    handleSubmit,
     formState: { errors, isValid, isSubmitting },
     getValues,
     reset
@@ -66,11 +65,7 @@ export default function orcamento() {
         return
       }
 
-
     } catch( err: any) {
-      alert(err)
-      console.log("ERro", err)
-
     }
   }
 
