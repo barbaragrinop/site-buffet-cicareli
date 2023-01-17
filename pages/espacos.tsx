@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import Navbar from "../components/Navbar";
+import WhatsappIcon from "../components/WhatsappIcon";
 import styles from "../styles/pages/espacos.module.scss";
 import { EspacosFake } from "../utils/espacos";
 
@@ -59,6 +60,8 @@ export default function espacos() {
           </div>
         ))}
       </div>
+      <WhatsappIcon />
+
     </div>
   );
 }

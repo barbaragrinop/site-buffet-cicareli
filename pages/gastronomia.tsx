@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import Navbar from "../components/Navbar";
+import WhatsappIcon from "../components/WhatsappIcon";
 import styles from "../styles/pages/gastronomia.module.scss";
 
 export default function gastronomia() {
@@ -48,6 +49,8 @@ export default function gastronomia() {
           </p>
         </div>
       </div>
+      <WhatsappIcon />
+
     </div>
   );
 }

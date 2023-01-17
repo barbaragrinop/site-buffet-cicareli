@@ -9,6 +9,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { FormOrcamento } from "../interfaces/FormOrcamento";
 import { yupResolver } from "@hookform/resolvers/yup";
+import WhatsappIcon from "../components/WhatsappIcon";
 
 const schema = yup.object().shape({
   nome: yup.string().required("Campo obrigatório"),
@@ -187,6 +188,7 @@ export default function orcamento() {
           </button>
         </form>
       </div>
+      <WhatsappIcon />
     </div>
   );
 }
