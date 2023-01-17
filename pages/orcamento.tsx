@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import React, { FormEvent } from "react";
 import Input from "../components/Input";
 import Navbar from "../components/Navbar";
 // @ts-ignore
@@ -44,25 +44,28 @@ export default function orcamento() {
     resolver: yupResolver(schema),
   });
 
-  async function onSubmit(ev: any) {
+  const onSubmit = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
+
     if(isValid) {
-      const res = await fetch("/api/sendgrid", {
-        body: JSON.stringify(getValues()),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-      });
+      try {
+        const res = fetch("/api/sendgrid", {
+          method: "POST", 
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(getValues())
+        })
 
-      const { error } = await res.json();
-      if (error) {
-        console.log(error);
-        return;
+        if(!(await res).ok) {
+          alert("não foi")
+        }
+      } catch( err: any) {
+        alert(err)
+        console.log("ERro", err)
+
       }
-      console.log(getValues());
     }
-
   }
 
   return (
@@ -89,7 +92,7 @@ export default function orcamento() {
             height={649}
           />
         </div>
-        <form className={styles.formContato} onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.formContato} onSubmit={onSubmit}>
           <div>
             <Input
               type="text"
@@ -174,7 +177,6 @@ export default function orcamento() {
           <button
             type="submit"
             disabled={!isValid || isSubmitting}
-            onClick={onSubmit}
           >
             Enviar dados
           </button>
