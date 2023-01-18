@@ -11,6 +11,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    p {
+        text-align: left ;
+        padding-top: 2rem;
+        width: 80%;
+        color: $white0;
+        font-size: 0.8rem;
+        font-weight: 100;
+        padding-bottom: 3rem;
+
+    }
 }
 
 .main {
@@ -46,6 +56,10 @@
     width: 80%;
     display: flex;
     gap: 6rem;
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+    border-bottom: 1px solid $grey400;
+
 
     .detalhes {
         display: flex;
@@ -78,6 +92,15 @@
 @media (max-width: 700px) { 
     .footer {
         font-size: 12px;
+    }
+
+    .informacoes, .main {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .main {
+        padding-bottom: 2rem;
     }
 }
 

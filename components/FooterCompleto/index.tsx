@@ -49,9 +49,11 @@ export function FooterCompleto() {
                 </div>
                 <div className={styles.detalhes}>
                     <h2>Política de Privacidade</h2>
-                    <Link href={""}>Termo de Consentimento da Privacidade</Link>
+                    <Link href={""}>Termo de Consentimento de Privacidade</Link>
+                    <Link href={""}>Termos de Uso</Link>
                 </div>
             </div>
+            <p>{ano} &copy; Buffet Cicareli  |  Todos os direitos reservados </p>
         </footer> 
     );
 }

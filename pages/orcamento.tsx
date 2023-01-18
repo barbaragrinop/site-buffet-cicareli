@@ -184,7 +184,7 @@ export default function orcamento() {
           </button>
         </form>
       </div>
-      {/* <WhatsappIcon /> */}
+      <WhatsappIcon />
       <FooterCompleto />
     </div>
   );
