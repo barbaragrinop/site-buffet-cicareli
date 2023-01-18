@@ -11,7 +11,7 @@ export default function Navbar() {
   const { pathname, push } = useRouter();
 
   return (
-    <header className={styles.header} style={{ minWidth: "100%" }}>
+    <header className={styles.header}>
       <Image
         role="button"
         onClick={() => push("/")}
