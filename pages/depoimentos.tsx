@@ -10,6 +10,8 @@ import {
 } from "react-icons/bs";
 import WhatsappIcon from "../components/WhatsappIcon";
 import Footer from "../components/Footer";
+import { motion } from "framer-motion"
+
 
 export default function depoimentos() {
   const { carouselFragment, slideToNextItem, slideToPrevItem } =
@@ -90,38 +92,49 @@ export default function depoimentos() {
         <link rel="icon" href="/icons/favicon.svg" />
       </Head>
       <Navbar />
-      <div className={styles.main}>
-        <div className={styles.titulo}>
-          <Image
-            src={"/icons/tree-left.svg"}
-            alt="slskdf"
-            width={50}
-            height={50}
-          />
-          <span>Depoimentos</span>
-          <Image
-            src={"/icons/tree-right.svg"}
-            alt="slskdf"
-            width={50}
-            height={50}
-          />
-        </div>
-        <div className={styles.descricao}>
-          <p>Vem saber o que falam de nós!</p>
-        </div>
-      </div>
-      <div className={styles.resizeHCarousel}>
-        <div className={styles.espacosMainCarousel}>
-          <button className={styles.slideToPrevItem} onClick={slideToPrevItem}>
-            <BsFillArrowLeftCircleFill />
-          </button>
-          {carouselFragment}
+      <motion.div  initial="pageInitial" animate="pageAnimate" variants={{
+        pageInitial: {
+          opacity: 0
+        }, 
+        pageAnimate: {
+          opacity: 1
+        }
+      }}>
+        <div className={styles.main}>
+                <div className={styles.titulo}>
+                  <Image
+                    src={"/icons/tree-left.svg"}
+                    alt="slskdf"
+                    width={50}
+                    height={50}
+                  />
+                  <span>Depoimentos</span>
+                  <Image
+                    src={"/icons/tree-right.svg"}
+                    alt="slskdf"
+                    width={50}
+                    height={50}
+                  />
+                </div>
+                <div className={styles.descricao}>
+                  <p>Vem saber o que falam de nós!</p>
+                </div>
+        </div>  
+        <div className={styles.resizeHCarousel}>
+            <div className={styles.espacosMainCarousel}>
+              <button className={styles.slideToPrevItem} onClick={slideToPrevItem}>
+                <BsFillArrowLeftCircleFill />
+              </button>
+              {carouselFragment}
 
-          <button className={styles.slideToNextItem} onClick={slideToNextItem}>
-            <BsFillArrowRightCircleFill />
-          </button>
+              <button className={styles.slideToNextItem} onClick={slideToNextItem}>
+                <BsFillArrowRightCircleFill />
+              </button>
+            </div>
         </div>
-      </div>
+      </motion.div>
+      
+      
       <WhatsappIcon />
       <Footer />
     </>

@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { FormOrcamento } from "../interfaces/FormOrcamento";
 import { yupResolver } from "@hookform/resolvers/yup";
 import WhatsappIcon from "../components/WhatsappIcon";
+import { motion } from "framer-motion"
 import { FooterCompleto } from "../components/FooterCompleto";
 
 const schema = yup.object().shape({
@@ -80,9 +81,19 @@ export default function orcamento() {
         <link rel="icon" href="/icons/favicon.svg" />
       </Head>
       <Navbar />
-      <div className={styles.content}>
+      <motion.div initial="pageInitial" animate="pageAnimate" variants={{
+      pageInitial: {
+        opacity: 0
+      }, 
+      pageAnimate: {
+        opacity: 1
+      }
+    }}>
+     <div className={styles.content}>
         <h1>Contato</h1>
       </div>
+    </motion.div>
+ 
       <div className={styles.mainContentForm}>
         <div className={styles.introduction}>
           <h2>Peça um orçamento</h2>

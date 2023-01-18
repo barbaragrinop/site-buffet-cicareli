@@ -3,6 +3,8 @@ import styles from "../styles/Home.module.scss";
 import Navbar from "../components/Navbar";
 import { useRouter } from "next/router";
 import WhatsappIcon from "../components/WhatsappIcon";
+import { motion } from "framer-motion"
+
 
 export default function Home() {
   const { push } = useRouter();
@@ -17,15 +19,25 @@ export default function Home() {
         <link rel="icon" href="/icons/favicon.svg" />
       </Head>
       <Navbar />
-      <div className={styles.bannerHome}>
-        <div className={styles.introduction}>
-          <p>
-            Buffet Cicareli <br /> desde 1970.
-          </p>
-          <span>Eventos Sociais e Corporativos</span>
-          <button onClick={() => push("quem-somos")}>Saber Mais</button>
+      <motion.div initial="pageInitial" animate="pageAnimate" variants={{
+        pageInitial: {
+          opacity: 0
+        }, 
+        pageAnimate: {
+          opacity: 1
+        }
+      }}>
+        <div className={styles.bannerHome}>
+          <div className={styles.introduction}>
+            <p>
+              Buffet Cicareli <br /> desde 1970.
+            </p>
+            <span>Eventos Sociais e Corporativos</span>
+            <button onClick={() => push("quem-somos")}>Saber Mais</button>
+          </div>
         </div>
-      </div>
+      </motion.div>
+     
       <WhatsappIcon />
     </div>
   );

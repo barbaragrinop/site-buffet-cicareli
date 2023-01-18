@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import WhatsappIcon from "../components/WhatsappIcon";
 import styles from "../styles/pages/gastronomia.module.scss";
+import { motion } from "framer-motion"
+
 
 export default function gastronomia() {
   return (
@@ -17,39 +19,49 @@ export default function gastronomia() {
         <link rel="icon" href="/icons/favicon.svg" />
       </Head>
       <Navbar />
-      <div className={styles.main}>
-        <div className={styles.imagem}>
-          <Image
-            src={"/images/gastronomia.webp"}
-            alt="Foto de um cozinheiro finalizando um prato."
-            width={600}
-            height={700}
-          />
-        </div>
-        <div className={styles.descricao}>
-          <div className={styles.titulo}>
-            <h1>Gastronomia</h1>
+      <motion.div initial="pageInitial" animate="pageAnimate" variants={{
+        pageInitial: {
+          opacity: 0
+        }, 
+        pageAnimate: {
+          opacity: 1
+        }
+      }}>
+
+        <div className={styles.main}>
+          <div className={styles.imagem}>
             <Image
-              style={{ objectFit: "contain", objectPosition: "18% 100%" }}
-              src={"/icons/tree-right.svg"}
-              alt="Símbolo Cicareli virado para a direita"
-              width={30}
-              height={30}
-              // objectFit
+              src={"/images/gastronomia.webp"}
+              alt="Foto de um cozinheiro finalizando um prato."
+              width={600}
+              height={700}
             />
           </div>
+          <div className={styles.descricao}>
+            <div className={styles.titulo}>
+              <h1>Gastronomia</h1>
+              <Image
+                style={{ objectFit: "contain", objectPosition: "18% 100%" }}
+                src={"/icons/tree-right.svg"}
+                alt="Símbolo Cicareli virado para a direita"
+                width={30}
+                height={30}
+                // objectFit
+              />
+            </div>
 
-          <p>
-            Os cardápios do Buffet Cicareli são elaborados de forma
-            personalizada, com sofisticação e elegância para atender os momentos
-            mais especiais.{" "}
-          </p>
-          <p>
-            A equipe é treinada e especializada, na cozinha unimos formação
-            internacional com mais de 70 anos de prática.
-          </p>
+            <p>
+              Os cardápios do Buffet Cicareli são elaborados de forma
+              personalizada, com sofisticação e elegância para atender os momentos
+              mais especiais.{" "}
+            </p>
+            <p>
+              A equipe é treinada e especializada, na cozinha unimos formação
+              internacional com mais de 70 anos de prática.
+            </p>
+          </div>
         </div>
-      </div>
+      </motion.div>
       <WhatsappIcon />
       <Footer />
 

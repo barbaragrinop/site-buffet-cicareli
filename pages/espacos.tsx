@@ -7,6 +7,8 @@ import Navbar from "../components/Navbar";
 import WhatsappIcon from "../components/WhatsappIcon";
 import styles from "../styles/pages/espacos.module.scss";
 import { EspacosFake } from "../utils/espacos";
+import { motion } from "framer-motion"
+
 
 export default function espacos() {
   return (
@@ -19,48 +21,58 @@ export default function espacos() {
         <link rel="icon" href="/icons/favicon.svg" />
       </Head>
       <Navbar />
-      <div className={styles.main}>
-        <div className={styles.titulo}>
-          <Image
-            src={"/icons/tree-left.svg"}
-            alt="slskdf"
-            width={50}
-            height={50}
-          />
-          <span>Espaços</span>
-          <Image
-            src={"/icons/tree-right.svg"}
-            alt="slskdf"
-            width={50}
-            height={50}
-          />
-        </div>
-        <div className={styles.descricao}>
-          <p>
-            A sede administrativa e gastronômica está instalada em um prédio em
-            São Paulo, onde produzimos para atender em todo o território
-            nacional.
-          </p>
-          <p>
-            {" "}
-            Os eventos podem ser realizados em nossos espaços parceiros, na sede
-            de empresas, ou ainda em outro lugar à sua escolha.{" "}
-          </p>
-        </div>
-      </div>
-      <div className={styles.espacosMain}>
-        {EspacosFake.map((x, index) => (
-          <div className={styles.card}>
-            <div>img</div>
-            <p className={styles.titleEspacos}>titulo</p>
-            <p className={styles.descricaoEspacos}>
-              A sede administrativa e gastronômica está instalada em um prédio
-              em São Paulo, onde produzimos para atender em todo o território
-              nacional.{" "}
+      <motion.div initial="pageInitial" animate="pageAnimate" variants={{
+        pageInitial: {
+          opacity: 0
+        }, 
+        pageAnimate: {
+          opacity: 1
+        }
+      }}>
+
+        <div className={styles.main}>
+          <div className={styles.titulo}>
+            <Image
+              src={"/icons/tree-left.svg"}
+              alt="slskdf"
+              width={50}
+              height={50}
+            />
+            <span>Espaços</span>
+            <Image
+              src={"/icons/tree-right.svg"}
+              alt="slskdf"
+              width={50}
+              height={50}
+            />
+          </div>
+          <div className={styles.descricao}>
+            <p>
+              A sede administrativa e gastronômica está instalada em um prédio em
+              São Paulo, onde produzimos para atender em todo o território
+              nacional.
+            </p>
+            <p>
+              {" "}
+              Os eventos podem ser realizados em nossos espaços parceiros, na sede
+              de empresas, ou ainda em outro lugar à sua escolha.{" "}
             </p>
           </div>
-        ))}
-      </div>
+        </div>
+        <div className={styles.espacosMain}>
+          {EspacosFake.map((x, index) => (
+            <div className={styles.card}>
+              <div>img</div>
+              <p className={styles.titleEspacos}>titulo</p>
+              <p className={styles.descricaoEspacos}>
+                A sede administrativa e gastronômica está instalada em um prédio
+                em São Paulo, onde produzimos para atender em todo o território
+                nacional.{" "}
+              </p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
       <WhatsappIcon />
       <Footer />
 
