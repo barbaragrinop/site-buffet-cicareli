@@ -30,14 +30,14 @@ export default function QuemSomos() {
         <div className={styles.backgroundQM}>
           <div className={styles.explicacao}>
             <p>
-              <Image
+              <img
                 src="/icons/tree-left.svg"
                 alt="Símbolo Cicareli"
                 width={70}
                 height={70}
               />
               <span>Quem Somos</span>
-              <Image
+              <img
                 src="/icons/tree-right.svg"
                 alt="Símbolo Cicareli"
                 width={70}
@@ -74,7 +74,7 @@ export default function QuemSomos() {
             </div>
           </div>
           <div className={styles.imagem}>
-            <Image
+            <img
               src={"/images/rectangle19.webp"}
               alt="Foto de uma mesa posta para o jantar"
               width={470}

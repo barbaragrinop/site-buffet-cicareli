@@ -30,7 +30,7 @@ export default function gastronomia() {
 
         <div className={styles.main}>
           <div className={styles.imagem}>
-            <Image
+            <img
               src={"/images/gastronomia.webp"}
               alt="Foto de um cozinheiro finalizando um prato."
               width={600}
@@ -40,7 +40,7 @@ export default function gastronomia() {
           <div className={styles.descricao}>
             <div className={styles.titulo}>
               <h1>Gastronomia</h1>
-              <Image
+              <img
                 style={{ objectFit: "contain", objectPosition: "18% 100%" }}
                 src={"/icons/tree-right.svg"}
                 alt="Símbolo Cicareli virado para a direita"

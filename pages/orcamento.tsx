@@ -98,7 +98,7 @@ export default function orcamento() {
         <div className={styles.introduction}>
           <h2>Peça um orçamento</h2>
           <span>Preencha o formulário ao lado e entraremos em contato!</span>
-          <Image
+          <img
             src={"/images/bolo-orcamento.png"}
             alt="Bolo de chocolate"
             width={488}

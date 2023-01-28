@@ -13,14 +13,12 @@ export function FooterCompleto() {
     return (
         <footer className={styles.footer}>
             <div className={styles.main}>
-                <Image
+                <img
                     role="button"
                     onClick={() => push("/")}
                     className={styles.logoNavbar}
                     src={"/images/logo.svg"}
-                    priority
-                    width={150}
-                    height={60}
+                    loading="eager"
                     alt="Logo do Buffet Cicareli"
                 />
                 <div className={styles.contato}>

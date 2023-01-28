@@ -12,12 +12,11 @@ export default function Navbar() {
 
   return (
     <header className={styles.header}>
-      <Image
+      <img
         role="button"
         onClick={() => push("/")}
         className={styles.logoNavbar}
         src={"/images/logo.svg"}
-        priority
         width={100}
         height={50}
         alt="Logo do Buffet Cicareli"

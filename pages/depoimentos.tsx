@@ -102,14 +102,14 @@ export default function depoimentos() {
       }}>
         <div className={styles.main}>
                 <div className={styles.titulo}>
-                  <Image
+                  <img
                     src={"/icons/tree-left.svg"}
                     alt="slskdf"
                     width={50}
                     height={50}
                   />
                   <span>Depoimentos</span>
-                  <Image
+                  <img
                     src={"/icons/tree-right.svg"}
                     alt="slskdf"
                     width={50}
