@@ -12,7 +12,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     const { nome, email, mensagem } = req.body;
     const msg = {
       to: email, // Change to your recipient
-      from: "barbarapereira123@hotmail.com", // Change to your verified sender
+      from: "contactbuffetcicareli@gmail.com", // Change to your verified sender
       subject: mensagem,
       text: mensagem,
       html: `<strong>${nome}</strong>`,

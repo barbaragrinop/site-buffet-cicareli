@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 import { FormOrcamento } from "../interfaces/FormOrcamento";
 import { yupResolver } from "@hookform/resolvers/yup";
 import WhatsappIcon from "../components/WhatsappIcon";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import { FooterCompleto } from "../components/FooterCompleto";
 
 const schema = yup.object().shape({
@@ -30,7 +30,7 @@ export default function orcamento() {
     register,
     formState: { errors, isValid, isSubmitting },
     getValues,
-    reset
+    reset,
   } = useForm<FormOrcamento>({
     defaultValues: {
       nome: "",
@@ -50,26 +50,24 @@ export default function orcamento() {
   const onSubmit = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
-    if(!isValid) return
-    
+    if (!isValid) return;
+
     try {
       const res = fetch("/api/sendgrid", {
-        method: "POST", 
+        method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(getValues())
-      }).then(x => alert("DEU CERTO DMS"))
+        body: JSON.stringify(getValues()),
+      }).then((x) => alert("E-mail enviado com sucesso!"));
 
       // @ts-ignore
-      if(!res.ok) {
-        reset()
-        return
+      if (!res.ok) {
+        reset();
+        return;
       }
-
-    } catch( err: any) {
-    }
-  }
+    } catch (err: any) {}
+  };
 
   return (
     <div className={styles.main}>
@@ -81,19 +79,23 @@ export default function orcamento() {
         <link rel="icon" href="/icons/favicon.svg" />
       </Head>
       <Navbar />
-      <motion.div initial="pageInitial" animate="pageAnimate" variants={{
-      pageInitial: {
-        opacity: 0
-      }, 
-      pageAnimate: {
-        opacity: 1
-      }
-    }}>
-     <div className={styles.content}>
-        <h1>Contato</h1>
-      </div>
-    </motion.div>
- 
+      <motion.div
+        initial="pageInitial"
+        animate="pageAnimate"
+        variants={{
+          pageInitial: {
+            opacity: 0,
+          },
+          pageAnimate: {
+            opacity: 1,
+          },
+        }}
+      >
+        <div className={styles.content}>
+          <h1>Contato</h1>
+        </div>
+      </motion.div>
+
       <div className={styles.mainContentForm}>
         <div className={styles.introduction}>
           <h2>Peça um orçamento</h2>
@@ -187,10 +189,7 @@ export default function orcamento() {
               nossa <b>Política de Privacidade</b>.
             </p>
           </div>
-          <button
-            type="submit"
-            disabled={!isValid || isSubmitting}
-          >
+          <button type="submit" disabled={!isValid || isSubmitting}>
             Enviar dados
           </button>
         </form>
