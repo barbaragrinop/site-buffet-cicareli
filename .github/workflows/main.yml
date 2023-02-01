@@ -7,7 +7,7 @@ jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest   
-    steps:
+    steps: 
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
       - name: Add NPM
@@ -18,10 +18,10 @@ jobs:
       - run: npm run build
       - run: npm run export
       - name: 📂 Sync files
-    uses: SamKirkland/FTP-Deploy-Action@4.3.3
-    with:
-      server: ${{ secrets.ftp_host }}
-      username: ${{ secrets.ftp_user }}
-      password: ${{ secrets.ftp_password }}
-      local-dir: './out'
-      server-dir: 'public_html/'
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.ftp_host }}
+          username: ${{ secrets.ftp_user }}
+          password: ${{ secrets.ftp_password }}
+          local-dir: './out'
+          server-dir: 'public_html/'
