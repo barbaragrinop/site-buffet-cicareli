@@ -10,7 +10,6 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
-
       - name: Add NPM
         uses: actions/setup-node@v1
         with:
@@ -18,7 +17,6 @@ jobs:
         - run: npm install --frozen-lockfile
         - run: npm run build
         - run: npm run export
-      
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
@@ -27,4 +25,3 @@ jobs:
           password: ${{ secrets.ftp_password }}
           local-dir: './out'
           server-dir: 'public_html/'
-          
