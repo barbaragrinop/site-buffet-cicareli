@@ -32,7 +32,7 @@ export function FooterCompleto() {
         <div className={styles.detalhes}>
           <h2>Mapa do site</h2>
           {ItemsMenu.map(({ title, url }) => (
-            <Link href={url}>{title}</Link>
+            <Link key={url} href={url}>{title}</Link>
           ))}
         </div>
         <div className={styles.detalhes}>
@@ -50,8 +50,7 @@ export function FooterCompleto() {
         </div>
         <div className={styles.detalhes}>
           <h2>Política de Privacidade</h2>
-          <Link href={""}>Termo de Consentimento de Privacidade</Link>
-          <Link href={""}>Termos de Uso</Link>
+          <Link href={"/politica-privacidade"}>Termo de Consentimento de Privacidade</Link>
         </div>
       </div>
       <p>{ano} &copy; Buffet Cicareli | Todos os direitos reservados </p>

@@ -12,6 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import WhatsappIcon from "../components/WhatsappIcon";
 import { motion } from "framer-motion";
 import { FooterCompleto } from "../components/FooterCompleto";
+import { useRouter } from "next/router";
 
 const schema = yup.object().shape({
   nome: yup.string().required("Campo obrigatório"),
@@ -47,27 +48,26 @@ export default function orcamento() {
     resolver: yupResolver(schema),
   });
 
+  const { push } = useRouter()
+
   const onSubmit = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
-    if (!isValid) return;
+    const mensagemWhatsapp = 
+    `
 
-    try {
-      const res = fetch("/api/sendgrid", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(getValues()),
-      }).then((x) => alert("E-mail enviado com sucesso!"));
+    `
 
-      // @ts-ignore
-      if (!res.ok) {
-        reset();
-        return;
-      }
-    } catch (err: any) {}
+    push(`https://web.whatsapp.com/send?phone=5511958621913&text=NOME:${getValues().nome}%0aASOBRENOME:${getValues().sobrenome}%0D%0AEMAIL:${getValues().email}%0D%0A%0D%0ASOBREOEVENTO:%0D%0A%0D%0ATIPO:${getValues().tipoevento}%0D%0ALOCAL:${getValues().localevento}%0D%0AQTDCONVIDADOS:${getValues().numconvidados}%0D%0ADATA:${getValues().telefone}%0D%0A%0D%0A%0D%0A${getValues().mensagem}
+    
+    
+    
+    `)
+    console.log('getValues().nome', getValues().nome)
+    
   };
+  
+  https://web.whatsapp.com/send?phone=+5511912809990&text=Olá%21+Tudo+bem%3F
 
   return (
     <div className={styles.main}>
@@ -99,7 +99,7 @@ export default function orcamento() {
       <div className={styles.mainContentForm}>
         <div className={styles.introduction}>
           <h2>Peça um orçamento</h2>
-          <span>Preencha o formulário ao lado e entraremos em contato!</span>
+          <span>Preencha o formulário ao ladoooooo e entraremos em contato!</span>
           <img
             src={"/images/bolo-orcamento.png"}
             alt="Bolo de chocolate"
@@ -186,7 +186,7 @@ export default function orcamento() {
             <p>
               Ao enviar sua mensagem, você autoriza receber comunicações do
               Grupo Cicareli, podendo cancelar a qualquer momento. Consulte
-              nossa <b>Política de Privacidade</b>.
+              nossa <b onClick={() => push("/politica-privacidade")}>Política de Privacidade</b>.
             </p>
           </div>
           <button type="submit" disabled={!isValid || isSubmitting}>
