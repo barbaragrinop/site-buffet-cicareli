@@ -1,7 +1,7 @@
-on: 
-  push: 
+on:
+  push:
     branches: 
-      - main  
+      - main
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
@@ -12,16 +12,16 @@ jobs:
         uses: actions/checkout@v3
       - name: Add NPM
         uses: actions/setup-node@v1
-        with:
-          node-version: 12
-        - run: npm install --frozen-lockfile
-        - run: npm run build
-        - run: npm run export
+          with:
+            node-version: 12
+          - run: npm install --frozen-lockfile
+          - run: npm run build
+          - run: npm run export
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
-        with:
-          server: ${{ secrets.ftp_host }}
-          username: ${{ secrets.ftp_user }}
-          password: ${{ secrets.ftp_password }}
-          local-dir: './out'
-          server-dir: 'public_html/'
+          uses: SamKirkland/FTP-Deploy-Action@4.3.3
+            with:
+              server: ${{ secrets.ftp_host }}
+              username: ${{ secrets.ftp_user }}
+              password: ${{ secrets.ftp_password }}
+              local-dir: './out'
+              server-dir: 'public_html/'
