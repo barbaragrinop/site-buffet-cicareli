@@ -37,8 +37,8 @@ export function FooterCompleto() {
         </div>
         <div className={styles.detalhes}>
           <h2>Central de atendimento</h2>
-          <Link href={""}>(11) 95862-1913 (Telefone)</Link>
-          <Link href={""}>(11) 99942-9910 (WhatsApp)</Link>
+          <Link href={""}>(11) 5572-4404  (Telefone)</Link>
+          <Link href={""}>(11) 95862-1913 (WhatsApp)</Link>
           <Link
             href="mailto:comercial@buffetcicareli.com.br?Subject=Gostaria de saber mais sobres os serviços."
             target="_blank"

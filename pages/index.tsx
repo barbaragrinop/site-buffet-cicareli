@@ -30,7 +30,7 @@ export default function Home() {
         <div className={styles.bannerHome}>
           <div className={styles.introduction}>
             <p>
-              Buffet Cicareli <br /> desde 1970.
+              Buffet Cicareli <br /> <span style={{display: "block", fontSize: "35px"}}>desde 1970.</span>
             </p>
             <span>Eventos Sociais e Corporativos</span>
             <button onClick={() => push("quem-somos")}>Saber Mais</button>
