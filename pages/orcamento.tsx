@@ -50,24 +50,19 @@ export default function orcamento() {
 
   const { push } = useRouter()
 
-  const onSubmit = async (ev: FormEvent<HTMLFormElement>) => {
-    ev.preventDefault();
-
-    const mensagemWhatsapp = 
-    `
-
-    `
-
-    push(`https://web.whatsapp.com/send?phone=5511958621913&text=NOME:${getValues().nome}%0aASOBRENOME:${getValues().sobrenome}%0D%0AEMAIL:${getValues().email}%0D%0A%0D%0ASOBREOEVENTO:%0D%0A%0D%0ATIPO:${getValues().tipoevento}%0D%0ALOCAL:${getValues().localevento}%0D%0AQTDCONVIDADOS:${getValues().numconvidados}%0D%0ADATA:${getValues().telefone}%0D%0A%0D%0A%0D%0A${getValues().mensagem}
-    
-    
-    
+  function sendMessageWppDesktop(){
+    push(`https://web.whatsapp.com/send?phone=5511958621913&text=Olá, gostaria de mais informações. Segue os dados para nossa conversa: %0a%0a%0aNOME:${getValues().nome}%0aSOBRENOME:${getValues().sobrenome}%0D%0EMAIL:${getValues().email}%0D%0A%0D%0A SOBRE O EVENTO:%0D%0A%0D%0ATIPO:${getValues().tipoevento}%0D%0ALOCAL:${getValues().localevento}%0D%0A QTD. CONVIDADOS:${getValues().numconvidados}%0D%0ADATA:${getValues().dataevento}%0D%0A%0D%0A%0D%0A${getValues().mensagem}
     `)
-    console.log('getValues().nome', getValues().nome)
-    
+  }
+
+  function sendMessageWppMobile(){
+    push(`https://api.whatsapp.com/send?phone=5511958621913&text=Olá, gostaria de mais informações. Segue os dados para nossa conversa: %0a%0a%0aNOME:${getValues().nome}%0aSOBRENOME:${getValues().sobrenome}%0D%0EMAIL:${getValues().email}%0D%0A%0D%0A SOBRE O EVENTO:%0D%0A%0D%0ATIPO:${getValues().tipoevento}%0D%0ALOCAL:${getValues().localevento}%0D%0A QTD. CONVIDADOS:${getValues().numconvidados}%0D%0ADATA:${getValues().dataevento}%0D%0A%0D%0A%0D%0A${getValues().mensagem}
+    `)
+  }
+
+  const onSubmit = async (ev: FormEvent<HTMLFormElement>) => {
+    ev.preventDefault();  
   };
-  
-  https://web.whatsapp.com/send?phone=+5511912809990&text=Olá%21+Tudo+bem%3F
 
   return (
     <div className={styles.main}>
@@ -189,7 +184,10 @@ export default function orcamento() {
               nossa <b onClick={() => push("/politica-privacidade")}>Política de Privacidade</b>.
             </p>
           </div>
-          <button type="submit" disabled={!isValid || isSubmitting}>
+          <button onClick={sendMessageWppDesktop} className={styles.desktop} disabled={!isValid || isSubmitting}>
+            Enviar dados
+          </button>
+          <button onClick={sendMessageWppMobile} className={styles.mobile} disabled={!isValid || isSubmitting}>
             Enviar dados
           </button>
         </form>

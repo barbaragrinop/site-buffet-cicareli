@@ -97,6 +97,16 @@
     }
 }
 
+@media (min-width: 1012px) {
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display: block;
+    }
+}
+
 @media (max-width: 1012px) {
     .mainContentForm {
         display: flex;
@@ -116,7 +126,17 @@
         & > .formContato {
             width: 80%;
         }
+
     }
+
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display: block;
+    }
+   
 }
 
 @media (max-width: 593px) {
@@ -137,10 +157,18 @@
         & > .formContato {
             width: 80%;
             
-             > div {
+            > div {
                 display: flex;
                 flex-direction: column;
-             }
+            }
         }
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .desktop {
+        display: none;
     }
 }
