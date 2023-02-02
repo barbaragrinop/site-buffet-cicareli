@@ -13,6 +13,7 @@ import WhatsappIcon from "../components/WhatsappIcon";
 import { motion } from "framer-motion";
 import { FooterCompleto } from "../components/FooterCompleto";
 import { useRouter } from "next/router";
+import { format } from "date-fns"
 
 const schema = yup.object().shape({
   nome: yup.string().required("Campo obrigatório"),
@@ -50,13 +51,17 @@ export default function orcamento() {
 
   const { push } = useRouter()
 
+
   function sendMessageWppDesktop(){
-    push(`https://web.whatsapp.com/send?phone=5511958621913&text=Olá, gostaria de mais informações. Segue os dados para nossa conversa: %0a%0a%0aNOME:${getValues().nome}%0aSOBRENOME:${getValues().sobrenome}%0D%0EMAIL:${getValues().email}%0D%0A%0D%0A SOBRE O EVENTO:%0D%0A%0D%0ATIPO:${getValues().tipoevento}%0D%0ALOCAL:${getValues().localevento}%0D%0A QTD. CONVIDADOS:${getValues().numconvidados}%0D%0ADATA:${getValues().dataevento}%0D%0A%0D%0A%0D%0A${getValues().mensagem}
+    let dataFormatada = format(new Date(getValues().dataevento), "dd/MM/yyyy")
+    push(`https://web.whatsapp.com/send?phone=5511958621913&text=Olá, gostaria de mais informações sobre seus serviços. Segue os dados para nossa conversa: %0a%0a%0aNOME: ${getValues().nome}%0aSOBRENOME: ${getValues().sobrenome}%0D%0AEMAIL: ${getValues().email}%0D%0A%0D%0A -- Sobre o evento --%0D%0A%0D%0ATIPO:${getValues().tipoevento}%0D%0ALOCAL :${getValues().localevento}%0D%0AQTD. CONVIDADOS: ${getValues().numconvidados}%0D%0ADATA: ${dataFormatada}%0D%0A%0D%0A%0D%0A${getValues().mensagem}
     `)
   }
 
   function sendMessageWppMobile(){
-    push(`https://api.whatsapp.com/send?phone=5511958621913&text=Olá, gostaria de mais informações. Segue os dados para nossa conversa: %0a%0a%0aNOME:${getValues().nome}%0aSOBRENOME:${getValues().sobrenome}%0D%0EMAIL:${getValues().email}%0D%0A%0D%0A SOBRE O EVENTO:%0D%0A%0D%0ATIPO:${getValues().tipoevento}%0D%0ALOCAL:${getValues().localevento}%0D%0A QTD. CONVIDADOS:${getValues().numconvidados}%0D%0ADATA:${getValues().dataevento}%0D%0A%0D%0A%0D%0A${getValues().mensagem}
+    let dataFormatada = format(new Date(getValues().dataevento), "dd/MM/yyyy")
+    console.log('dataFormatada', dataFormatada)
+    push(`https://api.whatsapp.com/send?phone=5511958621913&text=Olá, gostaria de mais informações sobre seus serviços. Segue os dados para nossa conversa: %0a%0a%0aNOME: ${getValues().nome}%0aSOBRENOME: ${getValues().sobrenome}%0D%0AEMAIL: ${getValues().email}%0D%0A%0D%0A -- Sobre o evento --%0D%0A%0D%0ATIPO:${getValues().tipoevento}%0D%0ALOCAL: ${getValues().localevento}%0D%0AQTD. CONVIDADOS: ${getValues().numconvidados}%0D%0ADATA: ${dataFormatada}%0D%0A%0D%0A%0D%0A${getValues().mensagem}
     `)
   }
 
