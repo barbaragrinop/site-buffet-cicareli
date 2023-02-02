@@ -51,7 +51,6 @@ export default function orcamento() {
 
   const { push } = useRouter()
 
-
   function sendMessageWppDesktop(){
     let dataFormatada = format(new Date(getValues().dataevento), "dd/MM/yyyy")
     push(`https://web.whatsapp.com/send?phone=5511958621913&text=Olá, gostaria de mais informações sobre seus serviços. Segue os dados para nossa conversa: %0a%0a%0aNOME: ${getValues().nome}%0aSOBRENOME: ${getValues().sobrenome}%0D%0AEMAIL: ${getValues().email}%0D%0A%0D%0A -- Sobre o evento --%0D%0A%0D%0ATIPO:${getValues().tipoevento}%0D%0ALOCAL :${getValues().localevento}%0D%0AQTD. CONVIDADOS: ${getValues().numconvidados}%0D%0ADATA: ${dataFormatada}%0D%0A%0D%0A%0D%0A${getValues().mensagem}
