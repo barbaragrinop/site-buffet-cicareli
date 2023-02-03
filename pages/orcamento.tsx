@@ -51,13 +51,13 @@ export default function orcamento() {
 
   const { push } = useRouter()
 
-  function sendMessageWppDesktop(){
+  function sendMessageWppDesktop() {
     let dataFormatada = format(new Date(getValues().dataevento), "dd/MM/yyyy")
     push(`https://web.whatsapp.com/send?phone=5511958621913&text=Olá, gostaria de mais informações sobre seus serviços. Seguem os dados para nossa conversa: %0a%0a%0aNOME: ${getValues().nome}%0aSOBRENOME: ${getValues().sobrenome}%0D%0AEMAIL: ${getValues().email}%0D%0A%0D%0A -- Sobre o evento --%0D%0A%0D%0ATIPO:${getValues().tipoevento}%0D%0ALOCAL :${getValues().localevento}%0D%0AQTD. CONVIDADOS: ${getValues().numconvidados}%0D%0ADATA: ${dataFormatada}%0D%0A%0D%0A%0D%0A${getValues().mensagem}
     `)
   }
 
-  function sendMessageWppMobile(){
+  function sendMessageWppMobile() {
     let dataFormatada = format(new Date(getValues().dataevento), "dd/MM/yyyy")
     console.log('dataFormatada', dataFormatada)
     push(`https://api.whatsapp.com/send?phone=5511958621913&text=Olá, gostaria de mais informações sobre seus serviços. Seguem os dados para nossa conversa: %0a%0a%0aNOME: ${getValues().nome}%0aSOBRENOME: ${getValues().sobrenome}%0D%0AEMAIL: ${getValues().email}%0D%0A%0D%0A -- Sobre o evento --%0D%0A%0D%0ATIPO:${getValues().tipoevento}%0D%0ALOCAL: ${getValues().localevento}%0D%0AQTD. CONVIDADOS: ${getValues().numconvidados}%0D%0ADATA: ${dataFormatada}%0D%0A%0D%0A%0D%0A${getValues().mensagem}
@@ -65,7 +65,7 @@ export default function orcamento() {
   }
 
   const onSubmit = async (ev: FormEvent<HTMLFormElement>) => {
-    ev.preventDefault();  
+    ev.preventDefault();
   };
 
   return (
@@ -98,7 +98,7 @@ export default function orcamento() {
       <div className={styles.mainContentForm}>
         <div className={styles.introduction}>
           <h2>Peça um orçamento</h2>
-          <span>Preencha o formulário ao ladoooooo e entraremos em contato!</span>
+          <span>Preencha o formulário ao lado e entraremos em contato!</span>
           <img
             src={"/images/bolo-orcamento.png"}
             alt="Bolo de chocolate"
